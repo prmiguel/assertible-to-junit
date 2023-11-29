@@ -1,15 +1,8 @@
 tasks:
-  - name: Install Package
-    init: gp sync-await bundle
+  - name: Setup
     before: |
       npm i
       npm run build
       npm run add
-  - name: Generate Junit Report
-    init: gp sync-await bundle
-    before: |
       assertible-to-junit "$(cat ./example-jsons/single-test.json)" "$(cat ./example-jsons/tests.json)"
-  - name: Service XUNIT Report
-    init: gp sync-await bundle
-    before: |
       xunit-viewer -r test-report.xml -w -s -p 5050
