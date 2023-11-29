@@ -100,29 +100,33 @@ interface Test {
   redirectCount: null;
 }
 
-let results: Array<Result> = JSON.parse(process.argv[2]);
-let tests: Array<Test> = JSON.parse(process.argv[3]);
+function generateReport(resultsJson: string, testsJson: string): void {
+  let results: Array<Result> = JSON.parse(resultsJson);
+  let tests: Array<Test> = JSON.parse(testsJson);
 
-results.forEach((result) => {
-  let testName = tests.find((test) => test.id == result.test)?.name;
-  var suite = builder.testSuite().name(testName);
+  results.forEach((result) => {
+    let testName = tests.find((test) => test.id == result.test)?.name;
+    var suite = builder.testSuite().name(testName);
 
-  result.assertions.passed.forEach((passed) => {
-    if (passed.id) {
-      suite.testCase()
-        .className(testName)
-        .name(`${passed.source} ${passed.property} ${passed.comparator} ${passed.target}`);
-    }
+    result.assertions.passed.forEach((passed) => {
+      if (passed.id) {
+        suite.testCase()
+          .className(testName)
+          .name(`${passed.source} ${passed.property} ${passed.comparator} ${passed.target}`);
+      }
+    });
+
+    result.assertions.failed.forEach((failed) => {
+      if (failed.id) {
+        suite.testCase()
+          .className(testName)
+          .name(`${failed.source} ${failed.property} ${failed.comparator} ${failed.target}`)
+          .failure(failed.errors[0]);
+      }
+    });
   });
 
-  result.assertions.failed.forEach((failed) => {
-    if (failed.id) {
-      suite.testCase()
-        .className(testName)
-        .name(`${failed.source} ${failed.property} ${failed.comparator} ${failed.target}`)
-        .failure(failed.errors[0]);
-    }
-  });
-});
+  builder.writeTo('test-report.xml');
+}
 
-builder.writeTo('test-report.xml');
+module.exports = generateReport;

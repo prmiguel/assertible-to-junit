@@ -4,8 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node --loader ts-node/esm index.ts",
-    "test": "ts-node index.ts"
+    "build": "tsc",
+    "remove": "npm uninstall -g",
+    "add": "npm install -g",
+    "test": "ts-node cli.ts"
+  },
+  "bin": {
+    "assertible-to-junit": "./cli.js"
   },
   "keywords": [],
   "author": "",
