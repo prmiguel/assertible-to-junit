@@ -1,7 +1,6 @@
-# assertible-to-junit
-
+# `Assertible` To `Junit`
 
 Example:
 ```sh
-npm run test -- "$(cat ./example-jsons/single-test.json)" "$(cat ./example-jsons/tests.json)"
+assertible-to-junit "$(cat results.json)" "$(cat tests.json)"
 ```

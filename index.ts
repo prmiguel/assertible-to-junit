@@ -106,7 +106,16 @@ function generateReport(resultsJson: string, testsJson: string): void {
 
   results.forEach((result) => {
     let testName = tests.find((test) => test.id == result.test)?.name;
-    var suite = builder.testSuite().name(testName);
+    var suite = builder.testSuite()
+      .name(testName)
+      .time(result.responseTime)
+      .timestamp(result.timestamp)
+      .property("test", result.test)
+      .property("requestHost", result.requestHost)
+      .property("requestPath", result.requestPath)
+      .property("runId", result.runId)
+      .property("testRun", result.testRun)
+      .property("executionEnvironment", result.executionEnvironment.name);
 
     result.assertions.passed.forEach((passed) => {
       if (passed.id) {
