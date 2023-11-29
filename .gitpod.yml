@@ -1,6 +1,7 @@
 tasks:
   - name: Setup
     before: |
+      npm i -g xunit-viewer
       npm i
       npm run build
       npm run add
