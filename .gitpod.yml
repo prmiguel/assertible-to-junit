@@ -1,9 +1,13 @@
 tasks:
   - name: Setup
     before: |
+      curl -u $ASSERTIBLE_API_TOKEN_2: 'https://assertible.com/tests' > tests.json
+      curl -XPOST -u $ASSERTIBLE_API_TOKEN_1: https://assertible.com/apis/$ASSERTIBLE_API_PROJECT/run -d'{
+        "wait": true
+      }' > results.json
       npm i -g xunit-viewer
       npm i
       npm run build
       npm run add
-      assertible-to-junit "$(cat ./example-jsons/single-test.json)" "$(cat ./example-jsons/tests.json)"
+      assertible-to-junit "$(cat ./results.json)" "$(cat ./tests.json)"
       xunit-viewer -r test-report.xml -w -s -p 5050

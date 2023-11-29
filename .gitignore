@@ -2,3 +2,5 @@ node_modules
 index.html
 test-report.xml
 *.js
+tests.json
+results.json
