@@ -1,0 +1,23 @@
+[
+    {
+      "useCookies": true,
+      "createdAt": "2023-11-04T06:44:13.52194Z",
+      "variables": [],
+      "auth": null,
+      "responseTimeout": null,
+      "uniqueImportId": "djFfdXJsXyJHRVQiXy9wdWJsaWMvY3JvY29kaWxlcy8=",
+      "requestHttpVersion": "1.1",
+      "params": [],
+      "headers": [],
+      "name": "List all public crocodiles",
+      "method": "GET",
+      "scheme": null,
+      "id": "ddc46977-a410-454b-ae46-d0b0e99a54cc",
+      "updatedAt": "2023-11-04T06:47:51.604995Z",
+      "api": "079280e2-e51d-43e9-a932-84f03c2be041",
+      "endpoint": "/public/crocodiles/",
+      "description": "Ensure the HTTP request returns a 200 OK",
+      "requestBody": null,
+      "redirectCount": null
+    }
+  ]

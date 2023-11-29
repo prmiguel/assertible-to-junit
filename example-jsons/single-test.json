@@ -1,0 +1,101 @@
+[
+    {
+      "requestScheme": "https",
+      "responseHeaders": [
+        {
+          "enabled": true,
+          "value": "Wed, 29 Nov 2023 08:43:55 GMT",
+          "key": "Date"
+        },
+        {
+          "enabled": true,
+          "value": "application/json",
+          "key": "Content-Type"
+        },
+        {
+          "enabled": true,
+          "value": "609",
+          "key": "Content-Length"
+        },
+        {
+          "enabled": true,
+          "value": "keep-alive",
+          "key": "Connection"
+        },
+        {
+          "enabled": true,
+          "value": "Accept",
+          "key": "Vary"
+        },
+        {
+          "enabled": true,
+          "value": "GET, HEAD, OPTIONS",
+          "key": "Allow"
+        },
+        {
+          "enabled": true,
+          "value": "SAMEORIGIN",
+          "key": "X-Frame-Options"
+        }
+      ],
+      "requestHttpVersion": "1.1",
+      "test": "ddc46977-a410-454b-ae46-d0b0e99a54cc",
+      "result": "TestPass",
+      "requestHost": "test-api.k6.io",
+      "assertions": {
+        "passed": [
+          {
+            "property": null,
+            "enabled": true,
+            "test": "ddc46977-a410-454b-ae46-d0b0e99a54cc",
+            "comparator": "AssertEquals",
+            "source": "AssertStatusCode",
+            "id": "44eeb108-8dbd-49b5-858a-2eec050eeff6",
+            "target": "200"
+          },
+          {
+            "msg": "TLS/SSL validated",
+            "source": "AssertValidSsl"
+          },
+          {
+            "msg": "Connected to host",
+            "source": "AssertHttpRequestSuccess"
+          },
+          {
+            "msg": "Loaded environment `production`",
+            "source": "AssertValidEnvironment"
+          }
+        ],
+        "failed": []
+      },
+      "requestPath": "/public/crocodiles/",
+      "runId": "run_rforqwx",
+      "executionEnvironment": {
+        "service": "079280e2-e51d-43e9-a932-84f03c2be041",
+        "variables": [],
+        "auth": null,
+        "url": "test-api.k6.io",
+        "transient": false,
+        "headers": [],
+        "name": "production",
+        "validateSsl": true,
+        "id": "4652a6e3-31ad-4385-b9ea-94233aeba298"
+      },
+      "testRun": "0fff3be3-f68d-43e5-bcfb-a7a2d4889736",
+      "responseStatusCode": 200,
+      "requestHeaders": [],
+      "id": "995b7f5e-e77b-4014-9bdc-160d200a93cf",
+      "requestQuery": null,
+      "timestamp": "2023-11-29T08:43:55.753837Z",
+      "via": {
+        "origin": "assertible.com",
+        "username": "miangel-pr@outlook.com",
+        "account": "75adab46-1772-47c9-a5bf-f135c73f30a5",
+        "type": "ViaTrigger"
+      },
+      "responseBodySize": 609,
+      "requestMethod": "GET",
+      "responseTime": 292.68888799999996,
+      "requestBody": null
+    }
+  ]
