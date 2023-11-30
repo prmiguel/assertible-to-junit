@@ -127,10 +127,15 @@ function generateReport(resultsJson: string, testsJson: string): void {
 
     result.assertions.failed.forEach((failed) => {
       if (failed.id) {
+        const stacktraceMessage = `
+Test Run: https://assertible.com/dashboard#/services/${result.executionEnvironment.service}/results/${result.runId}
+Test: https://assertible.com/dashboard#/services/${result.executionEnvironment.service}/tests/${result.test}
+        `;
         suite.testCase()
           .className(testName)
           .name(`${failed.source} ${failed.property} ${failed.comparator} ${failed.target}`)
-          .failure(failed.errors[0]);
+          .failure(failed.errors[0])
+          .stacktrace(stacktraceMessage);
       }
     });
   });
